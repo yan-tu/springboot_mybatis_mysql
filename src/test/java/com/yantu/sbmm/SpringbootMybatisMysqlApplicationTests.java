@@ -1,4 +1,4 @@
-package com.example.springboot_mybatis_mysql;
+package com.yantu.sbmm;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
