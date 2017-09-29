@@ -1,0 +1,2 @@
+# springboot_mybatis_mysql
+此项目用于搭建springboot应用框架，集成mybatis，redis，使用mysql数据库
