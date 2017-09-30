@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.yantu.sbmm.common.enums.ResultEnum;
+import com.yantu.sbmm.common.json.JsonResult;
 import com.yantu.sbmm.pojo.User;
 import com.yantu.sbmm.service.UserService;
 
@@ -19,10 +21,13 @@ public class UserController {
 	private UserService userService;
 	
 	@RequestMapping("/findUser")
-	public String findUser(@RequestParam Map<String,String> json){
+	public JsonResult findUser(@RequestParam Map<String,String> json){
+		JsonResult result = new JsonResult();
 		User queryUser = new User();
 		queryUser.setId(json.get("id"));
 		User user = userService.findById(queryUser);
-		return user==null?"获取失败":user.getName()+","+Integer.toString(user.getAge());
+		result = user==null?new JsonResult(ResultEnum.NO_VALUE,"获取失败",null):new JsonResult(ResultEnum.SUCCESS,"获取成功",user);
+		return result;
+		//return user==null?"获取失败":user.getName()+","+Integer.toString(user.getAge());
 	}
 }

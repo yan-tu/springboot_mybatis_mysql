@@ -26,7 +26,12 @@ public enum ResultEnum {
 	TOO_FREQUENT("445", "太频繁的调用"),
 	
 	/** 未知的错误 */
-	UNKNOWN_ERROR("499", "未知错误");
+	UNKNOWN_ERROR("499", "未知错误"),
+	
+	/** 无返回值 */
+	NO_VALUE("446", "无返回值");
+	
+	
 	
 	private String val;
 	private String msg;
