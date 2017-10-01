@@ -10,7 +10,6 @@ public class JsonResult {
 	public JsonResult() {
 		this.setCode(ResultEnum.SUCCESS);
 		this.setMessage("成功！");
-
 	}
 
 	public JsonResult(ResultEnum code) {

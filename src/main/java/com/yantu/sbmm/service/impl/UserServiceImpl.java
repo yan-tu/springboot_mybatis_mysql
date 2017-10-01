@@ -1,7 +1,6 @@
 package com.yantu.sbmm.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.yantu.sbmm.dao.UserDAO;
@@ -15,10 +14,10 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 
 	@Override
-	@Cacheable(value="user-key")
+	//@Cacheable(value="user-key", key="#user + 'result'")
 	public User findById(User user) {
 		User result = userDAO.findById(user);
-		System.out.println("调数据库....");
+		System.out.println("获取缓存失败，调用数据库..........");
 		return result;
 	}
 
