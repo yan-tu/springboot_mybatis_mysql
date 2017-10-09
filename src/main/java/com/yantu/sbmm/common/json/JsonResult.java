@@ -1,8 +1,16 @@
 package com.yantu.sbmm.common.json;
 
+import java.io.Serializable;
+
 import com.yantu.sbmm.common.enums.ResultEnum;
 
-public class JsonResult {
+
+public class JsonResult implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5408756221460514176L;
 	private String code;
 	private String message;
 	private Object data;

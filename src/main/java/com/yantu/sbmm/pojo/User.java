@@ -1,6 +1,16 @@
 package com.yantu.sbmm.pojo;
 
-public class User {
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1115715873116050652L;
+	
 	private String id;
 	private String name;
 	private int age;

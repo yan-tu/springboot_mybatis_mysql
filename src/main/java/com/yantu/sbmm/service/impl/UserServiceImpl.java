@@ -14,7 +14,6 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 
 	@Override
-	//@Cacheable(value="user-key", key="#user + 'result'")
 	public User findById(User user) {
 		User result = userDAO.findById(user);
 		System.out.println("获取缓存失败，调用数据库..........");

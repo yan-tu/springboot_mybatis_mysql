@@ -1,5 +1,6 @@
 package com.yantu.sbmm.common.enums;
 
+
 public enum ResultEnum {
 	/** 成功 */
 	SUCCESS("200", "成功"),
