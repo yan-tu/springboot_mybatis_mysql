@@ -6,5 +6,8 @@ import com.yantu.sbmm.pojo.User;
 
 @Repository
 public interface UserDAO {
+	
 	User findById(User user);
+
+	int updateUser(User user);
 }

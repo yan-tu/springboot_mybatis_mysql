@@ -12,4 +12,13 @@
   	select * from sys_user where id = #{id}
   </select>
   
+  <update id="updateUser" parameterType="com.yantu.sbmm.pojo.User">
+  	update 
+  		sys_user
+  	set 
+  		name = #{name},
+  		age = #{age}
+  	where id= #{id}
+  </update>
+  
 </mapper>
