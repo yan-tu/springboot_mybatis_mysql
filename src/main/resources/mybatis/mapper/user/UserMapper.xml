@@ -21,4 +21,20 @@
   	where id= #{id}
   </update>
   
+  <insert id="insertUser" parameterType="com.yantu.sbmm.pojo.User">
+  	insert into sys_user(
+		id, 
+		name, 
+		age
+	) VALUES (
+		#{id}, 
+		#{name}, 
+		#{age} 
+	)
+  </insert>
+  
+  <delete id="deleteUserById" parameterType="string">
+  	delete from sys_user where id=#{id}
+  </delete>
+  
 </mapper>

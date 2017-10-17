@@ -6,7 +6,9 @@ public interface UserService {
 	
 	User findById(String id);
 	
-	void deleteFromCache(String id);
+	boolean deleteFromCache(String id);
 	
-	int updateUser(User user);
+	User updateUser(User user);
+
+	User addUser(User user);
 }
