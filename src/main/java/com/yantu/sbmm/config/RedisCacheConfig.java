@@ -51,18 +51,17 @@ public class RedisCacheConfig extends CachingConfigurerSupport{
 	 */
 	@Override
 	public KeyGenerator keyGenerator() {
-		System.out.println("创建自定义缓存key..");
+		System.out.println("创建自定义缓存key...");
 		return new KeyGenerator(){
-
 			@Override
 			public Object generate(Object obj, Method med, Object... objs) {
 				StringBuilder sb = new StringBuilder();
-				sb.append(obj.getClass().getName());
-				sb.append(med.getName());
-				for (Object o : objs) {
+				sb.append(obj.getClass().getName());//类名
+				sb.append(med.getName());//方法名
+				for (Object o : objs) {//参数值
                    sb.append(o.toString());
 				}
-				System.out.println("自定义缓存key="+sb.toString());
+				// System.out.println("自定义缓存key="+sb.toString());
 				return sb.toString();
 			}
 			

@@ -12,7 +12,7 @@ import com.yantu.sbmm.dao.UserDAO;
 import com.yantu.sbmm.pojo.User;
 import com.yantu.sbmm.service.UserService;
 
-@Service("user")
+@Service("userTemplateImpl")
 public class UserServiceRedisTemplateImpl implements UserService {
 
 	@Autowired
@@ -32,17 +32,18 @@ public class UserServiceRedisTemplateImpl implements UserService {
 	
 	
 
+	@CacheEvict(value="user1")
 	@Override
 	public int updateUser(User user) {
-		return 0;
+		System.out.println("===================从数据库中更新，从缓存中删除,id="+user.getId());
+		return userDAO.updateUser(user);
 	}
-
 
 
 	@CacheEvict(value="user1")
 	@Override
 	public void deleteFromCache(String id) {
-		System.out.println("=====从缓存中删除");
+		System.out.println("===================从数据库中删除，从缓存中删除,id="+id);
 	}
 	
 	

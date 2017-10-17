@@ -4,9 +4,11 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.cache.annotation.CachePut;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mysql.jdbc.StringUtils;
@@ -21,7 +23,7 @@ import com.yantu.sbmm.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
-	@Qualifier("user")
+	@Qualifier("userTemplateImpl")
 	private UserService userService;
 	
 //	@RequestMapping("/findUser")
@@ -50,19 +52,10 @@ public class UserController {
 		userService.deleteFromCache(id);
 	}
 	
-	
-	@RequestMapping("/updateUser")
-	@CachePut(key="user.id",value="user")
-	public User updateUser(@RequestParam Map<String,String> json){
-		
-//		JSONObject jsonObject = JSONObject.parseObject(json);
-//		jsonObject.toJavaObject(json, );
-//		User queryUser = json.get("user");
-//		queryUser.setId(json.get("id"));
-//		User user = userService.findById(queryUser);
-//		return user;
-		return null;
-		//return user==null?"获取失败":user.getName()+","+Integer.toString(user.getAge());
+	@RequestMapping(value="/updateUser",method=RequestMethod.POST, consumes="application/json")
+	@ResponseBody
+	public int updateUser(@RequestBody User user){
+		return userService.updateUser(user);
 	}
 	
 	
