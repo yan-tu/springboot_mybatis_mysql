@@ -41,7 +41,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport{
     }
 	
 	/**
-	 * 自定义缓存key
+	 * 自定义缓存key生成器
 	 * key生成规则：类名+方法名+所有参数值生成唯一的key
 	 */
 //	@Override

@@ -26,19 +26,6 @@ public class UserController {
 	@Qualifier("userRedisImpl")
 	private UserService userService;
 	
-//	@RequestMapping("/findUser")
-//	@Cacheable(value="user-key", key="#json + 'user'")
-//	public JsonResult findUser(@RequestParam Map<String,String> json){
-//		JsonResult result = new JsonResult();
-//		User queryUser = new User();
-//		queryUser.setId(json.get("id"));
-//		User user = userService.findById(queryUser);
-//		result = user==null?new JsonResult(ResultEnum.NO_VALUE,"获取失败",null):new JsonResult(ResultEnum.SUCCESS,"获取成功",user);
-//		return result;
-//		//return user==null?"获取失败":user.getName()+","+Integer.toString(user.getAge());
-//	}
-	
-	
 	@RequestMapping("/findUserById")
 	public User findUser(@RequestParam Map<String,String> json){
 		String id = StringUtils.isNullOrEmpty(json.get("id"))?null:json.get("id");
@@ -60,9 +47,5 @@ public class UserController {
 	public User updateUser(User user){
 		return userService.updateUser(user);
 	}
-	
-	
-	
-	
 	
 }
