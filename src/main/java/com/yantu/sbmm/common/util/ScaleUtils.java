@@ -1,6 +1,6 @@
 package com.yantu.sbmm.common.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * 进制工具类

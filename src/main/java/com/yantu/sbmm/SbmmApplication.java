@@ -9,5 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SbmmApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SbmmApplication.class, args);
+		System.out.println("sbmm application start successful!");
 	}
 }

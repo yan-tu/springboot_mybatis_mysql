@@ -91,7 +91,7 @@
 
     <logger name="org.apache.activemq" level="ERROR" />
 
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="ERROR" />
         <appender-ref ref="INFO" />
